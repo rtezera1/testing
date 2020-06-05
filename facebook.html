@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Social Team Tests</title>
+</head>
+<body>
+ Anytime changes are made to this file, make sure to delete the pre-existing facebook.html in AWS bc-videocloud-dev account > S3 > bc-artifacts-dev > artifact_upload_test/facebook.html and upload this -->
+
+  <!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.3"></script>
+
+    <!-- Your embedded video player code -->
+    <div class="fb-video" data-href="" data-width="500" data-show-text="false" data-autoplay="true" id="fb-video">
+      <blockquote cite=blockQuoteCite class="fb-xfbml-parse-ignore" id="fb-xfbml-parse-ignore">
+        <a href=blockQuoteHref id="blockQuoteHref">test</a>
+        <p></p>
+    </blockquote>
+  </div>
+  <script type="text/javascript">
+    var urlParams = new URLSearchParams(window.location.search);
+    var videoID = urlParams.get('videoID');
+    var facebookID = urlParams.get('facebookID');
+    var dataHref = `https://www.facebook.com/${facebookID}/videos/${videoID}/`;
+    document.getElementById('fb-video').setAttribute('data-href', dataHref);
+
+    var blockQuoteCite = `https://developers.facebook.com/1${facebookID}/videos/${videoID}/`;
+    document.getElementById('fb-xfbml-parse-ignore').setAttribute('cite', blockQuoteCite);
+
+    var blockQuoteHref = `https://developers.facebook.com/${facebookID}/videos/${videoID}/`;
+    document.getElementById('blockQuoteHref').setAttribute('data-href', blockQuoteHref);
+  </script>
+</body>
+</html>
