@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <!--  MUST READ -->
+    <!-- Anytime changes are made to this file, make sure to delete the pre-existing youtube.html in AWS bc-videocloud-dev account > S3 > bc-artifacts-dev > artifact_upload_test/youtube.html and upload this -->
+
+    <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+    <div id="player"></div>
+
+    <script>
+      // 2. This code loads the IFrame Player API code asynchronously.
+      var tag = document.createElement('script');
+
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      // 3. This function creates an <iframe> (and YouTube player)
+      //    after the API code downloads.
+      var player;
+      var urlParams = new URLSearchParams(window.location.search);
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: '390',
+          width: '640',
+          videoId: urlParams.get('videoID'),
+          events: {
+            'onReady': onPlayerReady
+          }
+        });
+      }
+      window.playerReady = false;
+      // 4. The API will call this function when the video player is ready.
+      function onPlayerReady(event) {
+        window.playerReady = true;
+        event.target.playVideo();
+      }
+    </script>
+  </body>
+</html>
