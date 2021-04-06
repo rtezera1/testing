@@ -5,7 +5,7 @@
 </head>
 <body>
  Anytime changes are made to this file, make sure to delete the pre-existing facebook.html in AWS bc-videocloud-dev account > S3 > bc-artifacts-dev > artifact_upload_test/facebook.html and upload this -->
-
+  <iframe src="https://players.brightcove.net/5126559875001/default_default/index.html?videoId=6230587678001" allowfullscreen="" allow="encrypted-media" width="960" height="540"></iframe>
   <!-- Load Facebook SDK for JavaScript -->
   <div id="fb-root"></div>
   <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.3"></script>
@@ -30,6 +30,5 @@
     var blockQuoteHref = `https://developers.facebook.com/${facebookID}/videos/${videoID}/`;
     document.getElementById('blockQuoteHref').setAttribute('data-href', blockQuoteHref);
   </script>
-  <iframe src="https://players.brightcove.net/5126559875001/default_default/index.html?videoId=6230587678001" allowfullscreen="" allow="encrypted-media" width="960" height="540"></iframe>
 </body>
 </html>
